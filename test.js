@@ -186,3 +186,5 @@ describe('ShoppingCart class', () => {
         expect(orderResult).toEqual({ message: "Order confirmed", status: true });
     });
 });
+
+// Run tests with 'npm test' command
