@@ -1,25 +1,37 @@
 # Block-18-Workshop-Writing-Test-Specifications
-Functional Tests
-Shopping Cart Checkout Feature
+Functional test specifications can be worded slightly more naturally:
 
-Cart Interactions:
+When a user [does something with some parameters], [some thing should happen]
+Example: For the prompt was "A login and signup page that allows Single Sign-On with Google", your tests might include:
+When a user clicks "Log In" without filling in any information, they should be shown an error and prompted to sign up if they have not yet.
+When a user clicks "Log In" but has filled out an incorrect login or password, they should be shown an error and prompted to sign up if they have not yet.
+When a user clicks "Log In" and has filled in their login and password correctly, they should be taken to their dashboard.
+When a user clicks "Create Account" without filling in any information, they should be shown an error.
+When a user clicks "Create Account" with an invalid email address or password, they should be shown an error.
+When a user clicks the "Sign Up with Google" button, they should be taken through the Google authentication process.
+When a user clicks "Log In with Google", they should be logged in through Google, or taken through the Google authentication process if they do not already have an account.
+Prompts: 
+For each prompt below: 
 
-When a shopper has nothing in their cart, the cart should display a message saying the cart is empty and redirect to allow the shopper to start browsing.
-When a shopper has items in their cart, the cart should display the number of items.
-When a shopper clicks on their cart, the cart should display all the items added with a small description, image, and cost.
-When a shopper is viewing their cart, the cart should add all the items and display a subtotal.
-Checkout Process:
+Read the prompt.
+Identify the expectations.
+Write specifications in pseudocode/plain English for all the tests that would be useful for that prompt.
+Try to take any "edge cases," or unexpected circumstances, into account, and write test specs for them.
+Try not to write extraneous tests!
+Unit Tests:
+A function called "multiplication" that returns the product of the two input numbers.
 
-When a shopper is ready to check out, there is a check-out button that will prompt them to either log in to an account or check out as a guest.
-When a shopper logs in to their account, their cart should be saved in case they close the webpage.
-When a shopper chooses to continue as a guest, none of their information will be stored if the webpage is closed and after the check-out process.
-When a shopper continues to the next page, it should be a verification of the items they have in their cart and break down the subtotal plus tax.
-When a shopper has verified their cart in check-out, there should be a confirm button for them to confirm the cost plus shipping and tax.
-When a shopper hits the confirm button, the next page should be personal information inputs for name, email, and address; all information used for the checkout and receipt of the purchase.
-When a shopper attempts to continue without entering required info, they should be prompted to fill out the required fields.
-When a shopper hits continue after filling out the required fields, the next page should be inputs for payment info and display the cost breakdown again.
-When a shopper clicks on "Apple Pay," it should redirect them to make the payment with an Apple Pay charge.
-When a shopper fills out the card info incorrectly, they should receive an alert to fix any incorrect information.
-When a shopper confirms after filling out payment info, they should receive a page for a successful transaction.
-When a shopper confirms after filling out payment info, they should be given a receipt breakdown and estimation for delivery; and a message that they will be sent an emailed receipt as well.
-
+A function called "concatOdds" takes two arrays of integers as arguments. It should return a single array that only contains the odd numbers, in ascending order, from both of the arrays.
+Example: concatOdds([3, 2, 1], [9, 1, 1, 1, 4, 15, -1])
+...should result in [-1, 1, 3, 9, 15]
+Think about the following; you may need to make assumptions or decisions about the prompt and how the code should behave:
+What should happen with unexpected inputs?
+What kinds of unexpected inputs should we worry about?
+What should happen when there are multiples of the same odd number in the arrays? (Hint: We gave you the answer to this one in the example above.)
+Functional Tests:
+A shopping cart checkout feature that allows a user to check out as a guest (without an account), or as a logged-in user. They should be allowed to do either, but should be asked if they want to create an account or log in if they check out as a guest.
+Think about the following; you may need to make assumptions or decisions about the prompt and how the feature should behave:
+What should happen if the cart is empty?
+What needs to be shown to the user at each step of check out?
+What behaviors of this feature does the prompt miss or gloss over?
+Hint: Observe the shopping cart and checkout features of some popular websites to get some ideas!
